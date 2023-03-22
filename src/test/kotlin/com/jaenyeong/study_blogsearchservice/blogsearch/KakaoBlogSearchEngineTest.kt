@@ -1,7 +1,7 @@
 package com.jaenyeong.study_blogsearchservice.blogsearch
 
 import com.jaenyeong.study_blogsearchservice.blogsearch.dto.KakaoSearchParams
-import com.jaenyeong.study_blogsearchservice.blogsearch.dto.Sorting
+import com.jaenyeong.study_blogsearchservice.blogsearch.dto.KakaoSorting
 import com.jaenyeong.study_blogsearchservice.blogsearch.searchengine.KakaoBlogSearchEngine
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Disabled
@@ -21,10 +21,10 @@ class KakaoBlogSearchEngineTest(
 ) {
     @Disabled
     @Test
-    @DisplayName("카카오 블로그 검색 API 조회 테스트 성공")
+    @DisplayName("Kakao 블로그 검색 API 조회 테스트 성공")
     fun successWhenCallKakaoBlogSearchAPITest() {
         // Arrange
-        val searchParams = KakaoSearchParams(query = "카카오뱅크", sort = Sorting.of(null), page = null, size = null)
+        val searchParams = KakaoSearchParams(query = "카카오뱅크", sort = KakaoSorting.of(null), page = null, size = null)
 
         // Act
         val blogListResponse = kakaoBlogSearchEngine.searchBlog(searchParams)

@@ -8,18 +8,18 @@ import org.junit.jupiter.params.provider.MethodSource
 import org.junit.jupiter.params.provider.NullAndEmptySource
 import java.util.stream.Stream
 
-class SortingTest {
+class KakaoSortingTest {
     @ParameterizedTest
     @MethodSource("correctSortingTypes")
     @DisplayName("유효한 정렬 방식 문자열이 주어졌을 때 블로그 결과 정렬 방식 타입 가져오기 성공")
-    fun successReturnMatchingSortingTypeTest(givenSortType: String, expectedSortingType: Sorting) {
+    fun successReturnMatchingSortingTypeTest(givenSortType: String, expectedKakaoSortingType: KakaoSorting) {
         // Arrange
         // Act
-        val sortingType = Sorting.of(givenSortType)
+        val kakaoSortingType = KakaoSorting.of(givenSortType)
 
         // Assert
-        assertThat(sortingType).isEqualTo(expectedSortingType)
-        assertThat(sortingType.toString()).isEqualTo(expectedSortingType.toString())
+        assertThat(kakaoSortingType).isEqualTo(expectedKakaoSortingType)
+        assertThat(kakaoSortingType.toString()).isEqualTo(expectedKakaoSortingType.toString())
     }
 
     @ParameterizedTest
@@ -28,19 +28,19 @@ class SortingTest {
     fun returnAccuracyTypeWhenNullOrEmptyStringTest(nullOrEmptySortingType: String?) {
         // Arrange
         // Act
-        val sortingType = Sorting.of(nullOrEmptySortingType)
+        val kakaoSortingType = KakaoSorting.of(nullOrEmptySortingType)
 
         // Assert
-        assertThat(sortingType).isEqualTo(Sorting.ACCURACY)
-        assertThat(sortingType.toString()).isEqualTo(Sorting.ACCURACY.toString())
+        assertThat(kakaoSortingType).isEqualTo(KakaoSorting.ACCURACY)
+        assertThat(kakaoSortingType.toString()).isEqualTo(KakaoSorting.ACCURACY.toString())
     }
 
     companion object {
         @JvmStatic
         fun correctSortingTypes(): Stream<Arguments> =
             Stream.of(
-                Arguments.of("accuracy", Sorting.ACCURACY),
-                Arguments.of("recency", Sorting.RECENCY),
+                Arguments.of("accuracy", KakaoSorting.ACCURACY),
+                Arguments.of("recency", KakaoSorting.RECENCY),
             )
     }
 }

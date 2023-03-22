@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull
 data class KakaoSearchParams(
     @NotNull
     val query: String,
-    val sort: Sorting,
+    val sort: KakaoSorting,
     val page: Int?,
     val size: Int?
 ) {

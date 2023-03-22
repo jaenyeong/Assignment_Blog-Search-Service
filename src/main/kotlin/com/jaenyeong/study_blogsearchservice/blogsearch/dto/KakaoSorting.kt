@@ -1,6 +1,6 @@
 package com.jaenyeong.study_blogsearchservice.blogsearch.dto
 
-enum class Sorting(val sortType: String) {
+enum class KakaoSorting(val sortType: String) {
     ACCURACY("accuracy"),
     RECENCY("recency");
 
@@ -9,7 +9,7 @@ enum class Sorting(val sortType: String) {
     }
 
     companion object {
-        fun of(givenSortType: String?): Sorting {
+        fun of(givenSortType: String?): KakaoSorting {
             val findSortingType = givenSortType?.let {
                 values().find { it.sortType.lowercase() == givenSortType.lowercase() }
             }
