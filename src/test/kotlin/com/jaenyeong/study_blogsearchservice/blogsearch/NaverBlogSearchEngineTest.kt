@@ -28,6 +28,16 @@ class NaverBlogSearchEngineTest(
         val blogListResponse = naverBlogSearchEngine.searchBlog(searchParams)
 
         // Assert
-        println(blogListResponse)
+        assertThat(blogListResponse.total).isNotNull
+        assertThat(blogListResponse.start).isNotNull
+        assertThat(blogListResponse.display).isNotNull
+
+        val firstBlog = blogListResponse.items[0]
+        assertThat(firstBlog.title).isNotNull
+        assertThat(firstBlog.link).isNotNull
+        assertThat(firstBlog.description).isNotNull
+        assertThat(firstBlog.bloggerName).isNotNull
+        assertThat(firstBlog.bloggerLink).isNotNull
+        assertThat(firstBlog.postdate).isNotNull
     }
 }

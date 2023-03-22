@@ -11,5 +11,5 @@ data class NaverBlogs(
     val start: Int?,
     val display: Int?,
     @JsonProperty("items")
-    val items: List<NaverItem>?,
+    val items: List<NaverItem>,
 )
